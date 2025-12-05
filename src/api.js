@@ -29,3 +29,10 @@ export async function completeTask(id) {
   if (!res.ok) throw new Error("Failed to complete task");
   return res.json();
 }
+export async function getCompletedTasks() {
+  const res = await fetch(`${API_BASE}/tasks?status=completed`);
+  if (!res.ok) {
+    throw new Error("Failed to load completed tasks");
+  }
+  return res.json();
+}
